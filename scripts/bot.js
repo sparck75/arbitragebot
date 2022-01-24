@@ -5,17 +5,17 @@ const hre = require("hardhat");
 
 const uniswapFactoryAddress = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
 const uniswapRouterAddress = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
-const sushiswapFactoryAddress = '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac'
-const sushiswapRouterAddress = '0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F'
-const flashLoan = '0x5DFee85130E303A252c7450947648EdeaB977C96'
+const sushiswapFactoryAddress = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4'
+const sushiswapRouterAddress = '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'
+const flashLoan = '0x56Ef05B5b803eBeb68EFCAAC015414798b91375a'
 const linktoken = '0xa36085F69e2889c224210F603D836748e7dC0088'
 
-const daiAddress = '0x6B175474E89094C44Da98b954EedeAC495271d0F'
-const wethAddress = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
+const daiAddress = '0x4f96fe3b7a6cf9725f59d353f723c1bdb64ca6aa'
+const wethAddress = '0xd0a1e359811322d97991e03f863a0c30c2cf029c'
 
 async function main() {
   const provider = new ethers.getDefaultProvider('https://kovan.infura.io/v3/0be322968c214906a231738f3f6729ef')
-  const signer = new ethers.Wallet('YOUR PRIVATE KEY',provider)
+  const signer = new ethers.Wallet('d4ece23df952e631152250d1d2ece65e7313041f41ba9798bb08269632507ef5',provider)
   console.log('Signer is:',signer.address)
 
 
@@ -48,9 +48,7 @@ async function main() {
   )
 
   const balance = await provider.getBalance('0x36c0D7528F0D56d7B3f3CF066ae0f5abDdbbCb83')
-  console.log(balance)
-  
-  const loan = await flash.myFlashLoanCall({gasLimit: 300000})
+  const loan = await flash.myFlashLoanCall({gasLimit: 3000000})
   
   console.log(loan)
   
